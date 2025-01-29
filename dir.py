@@ -3,12 +3,12 @@
 import os
 import sys
 
-def exit_ () :
+def exit_ ():
     print("Terminating script...")
     sys.exit(1)
 
 
-def continue_creation_prmpt() :
+def continue_creation_prmpt():
     continue_ans = input("\nDo you still want to add directories? (y/n): ")
     while continue_ans != "y" and continue_ans != "n":
         continue_ans = input("\nInvalid input. Please enter (y/n) if you want to continue making directories or exit: ")
@@ -48,7 +48,7 @@ def create_child_directories(par_name, par_path, child_count):
             print("Created: " + "{" + child_path + "}")
             
   
-def main() :
+def main():
     course_name = input("What is the name of your course?: ")
     course_name_exists = os.path.isdir(course_name)
 
@@ -75,7 +75,7 @@ def main() :
     dir_creation(course_name)
 
 
-def dir_creation(course_name) :
+def dir_creation(course_name):
     continue_creation_prmpt()
 
     while True:
