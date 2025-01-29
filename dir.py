@@ -17,32 +17,21 @@ def continue_creation_prmpt():
 
 
 def create_child_directories(par_name, par_path, child_count):
-    if par_name == "labs":
-        for i in range(1, child_count + 1) :
-            if i < 10:
-                child_name = "lab0" + str(i)
-            else:
-                child_name = "lab10" 
-        
-            child_path = os.path.join(par_path, child_name)
-            os.mkdir(child_path, 0o700)
-            print("Created: " + "{" + child_path + "}")
-    elif par_name == "ass":
+    if par_name == "ass":
         for i in range(1, child_count + 1) :
             child_name = "ass0" + str(i)
             child_path = os.path.join(par_path, child_name)
             os.mkdir(child_path, 0o700)
             print("Created: " + "{" + child_path + "}")
     else:
-        child_name_no_nums = par_name[:-1]        # e.g., if [par_name = tests] => [child_name_no_nums = test]
         for i in range(1, child_count + 1) :
             if i < 10:
-                child_name = child_name_no_nums + "0" + str(i)
+                child_name = par_name[:-1] + "0" + str(i)
             elif i == 10:
-                child_name = child_name_no_nums + "10"
+                child_name = par_name[:-1] + "10"
             elif i > 10 and i < 20:
-                child_name = child_name_no_nums + "1" + str(i)
-            child_name = child_name_no_nums + str(i)
+                child_name = par_name[:-1] + "1" + str(i)
+            child_name = par_name[:-1] + str(i)
             child_path = os.path.join(par_path, child_name)
             os.mkdir(child_path, 0o700)
             print("Created: " + "{" + child_path + "}")
