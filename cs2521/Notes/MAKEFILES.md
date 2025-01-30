@@ -64,6 +64,35 @@ Make provides several automatic variables that make it easier to write rules.
 - `$?`: Dependencies that are newer than the target.
 
 
+### Difference between `$^` and `$?`:
+
+`$^` (Caret): This variable holds the list of all prerequisites, regardless of whether they are newer than the target. This is useful when you need to process all dependencies together, irrespective of their modification time.
+
+
+
+`$?` (Question Mark): This variable holds the list of prerequisites that are newer than the target. Essentially, it gives you the files that have changed and need to be recompiled or processed. This is useful when you only want to process updated files.
+
+```
+# Define source files and the target
+SOURCES = foo.c bar.c
+TARGET = myprogram
+
+# Rule to compile the target
+$(TARGET): $(SOURCES)
+    gcc -o $(TARGET) $^  # Use all dependencies to compile
+
+# Rule to recompile only updated source files
+recompile: $(SOURCES)
+    gcc -o $(TARGET) $?  # Use only the updated dependencies to recompile
+```
+
+In this example:
+
+The `gcc -o $(TARGET) $^` command will compile `foo.c` and `bar.c`, regardless of which one has been modified.
+
+The `gcc -o $(TARGET) $?` command will only recompile the modified source files (i.e., if only `foo.c` was modified, it will only recompile `foo.c`).
+
+
 ### 2. Pattern Rules: 
 
 These allow you to define generic rules that apply to multiple targets. For example, you can specify how to build any `.o` file from a `.c` file using a single rule.
