@@ -1,4 +1,4 @@
-# Compiling Steps
+# GCC Compiler Steps
 
 Although it seems compilation is one step `gcc -o executable_name source.c` there is more to it than meets the eye.
 
