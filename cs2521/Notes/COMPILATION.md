@@ -19,7 +19,7 @@ Example `source.c`
 
   int main(void) {
       int numbers[SIZE];
-  	  return 0;
+      return 0;
   }
 ```
 
