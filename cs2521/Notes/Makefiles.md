@@ -2,7 +2,7 @@
 
 Although it seems compilation is one step `gcc -o executable_name source.c` there is more to it than meets the eye.
 
-There are 3 distinct steps in the C compilation process. 
+There are 4 distinct steps in the C compilation process. 
 
 1. Preprocessing: **Handles lines beginning with `#`**, so #includes, #defines, and
 #ifdef. 
