@@ -29,7 +29,7 @@ not produced during compilation.
 
 4. Linking: The linker's primary job is to combine multiple object files (and possibly libraries) into a single executable.
 
-` gcc -o source.o ...o ...o executable_name` To run the linking step 
+` gcc -o source.o [any other object files] executable_name` To run the linking step 
 
 > produces an executable file
 
