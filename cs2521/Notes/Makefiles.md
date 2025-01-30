@@ -18,11 +18,14 @@ There are 3 distinct steps in the C compilation process.
 
 ` gcc -S source.c ` Outputs an assembly language file with the translated instructions 
 
-> produces a `.o` file
+> produces an assembly language file, such as `.s`
 
-3. Assembly: The assembler **converts the assembly language file into machine code** and produces an object file `.o`.
+3. Assembly: The assembler **converts the assembly language file into machine code**.
 
-- Although compilation and assembly are considered distinct steps, the `-c` flag tells the compiler to compile the source code and      assemble it into an object file `.o`. We don't have to handle the two steps separately.
+> produces an object file `.o`
+
+Although compilation and assembly are considered distinct steps, the `-c` flag tells the compiler to compile the source code and      assemble it into an object file `.o`. We don't have to handle the two steps separately. This is why an assembly language file is 
+not produced during compilation.
 
 4. Linking: The linker's primary job is to combine multiple object files (and possibly libraries) into a single executable.
 
