@@ -41,10 +41,10 @@ clean:
     rm -f hello main.o hello.o
 ```
 
-- hello is the target executable.
+- `hello` is the target executable.
 
-- main.o and hello.o are dependencies for the hello target.
+- `main.o` and `hello.o` are dependencies for the `hello` target.
 
-- gcc -o hello main.o hello.o is the command to link the object files into the final executable.
+- `gcc -o hello main.o hello.o` is the command to link the object files into the final executable.
 
-- The clean target is a convenience target to remove generated files.
+- The `clean` target is a convenience target to remove generated files.
