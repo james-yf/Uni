@@ -1,5 +1,6 @@
 # Compiling Steps
 
-![Alt Text](https://media.geeksforgeeks.org/wp-content/uploads/20230404112946/Compilation-Process-in-C.png)
+
+![Alt Text](../../../Desktop/Screenshot%202025-01-30%20at%2012.05.57%20pm.png)
 
 
