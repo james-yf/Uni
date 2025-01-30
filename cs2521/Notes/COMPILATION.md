@@ -32,7 +32,7 @@ Output after preprocessing
   }
 
 ```
-> There is much more output than shown above, since `stdio.h` needs to be handled, but for the sake of simplicity, the chosen snippet of output shows modifications to our code.
+> There are hundreds of lines more in output than shown above, since `stdio.h` is replaced with its function declarations, macros and constants, and type definitions. The chosen snippet highlights modifications to main().
 
 ## 2. Compilation:
 
