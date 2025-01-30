@@ -16,7 +16,16 @@ There are 3 distinct steps in the C compilation process.
 
 ` gcc -c source.c ` To run the compilation step
 
-> the output is a .o file
+> the output is an assembly language file usually with a .s extension
+
+3. Assembly: The assembler takes the assembly language file and converts it into machine code.
+
+> produces a .o file
+
+Although compilation and assembly are considered separate steps, when the compilation command -c is used the assembly step is 
+executed shortly after, giving us the .o file straight away.
+
+3. Linking: 
 
 ![Alt Text](images/3StepsCompiling.png)
 
