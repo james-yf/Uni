@@ -22,7 +22,7 @@ There are 3 distinct steps in the C compilation process.
 
 3. Assembly: The assembler **converts the assembly language file into machine code**.
 
-   Although compilation and assembly are considered as separate steps, the `-c` flag tells the compiler to compile the source code and      assemble it into an object file `.o`. 
+- Although compilation and assembly are considered as separate steps, the `-c` flag tells the compiler to compile the source code and      assemble it into an object file `.o`. 
 
 3. Linking: 
    
