@@ -1,6 +1,6 @@
 # Compiling Steps
 
-Although it seems compilation is one step `gcc -o source source.c` there is more to it than meets the eye.
+Although it seems compilation is one step `gcc -o executable_name source.c` there is more to it than meets the eye.
 
 There are 3 distinct steps in the C compilation process. 
 
@@ -24,8 +24,11 @@ There are 3 distinct steps in the C compilation process.
 
 - Although compilation and assembly are considered distinct steps, the `-c` flag tells the compiler to compile the source code and      assemble it into an object file `.o`. We don't have to handle the two steps separately.
 
-3. Linking: 
-   
+4. Linking: The linker's primary job is to combine multiple object files (and possibly libraries) into a single executable.
+
+` gcc -o source.o ...o ...o executable_name` To run the linking step 
+
+> produces an executable file
 
 ![Alt Text](images/3StepsCompiling.png)
 
