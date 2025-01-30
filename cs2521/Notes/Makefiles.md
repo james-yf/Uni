@@ -7,7 +7,7 @@ There are 3 distinct steps in the C compilation process.
 
 ` gcc -E source.c ` To run the preprocessing step
 
-> the output is a modified source code file with all the "#" lines resolved
+> the output is a modified source file with all the "#" lines resolved
 
 2. 
 
