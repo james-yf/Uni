@@ -25,7 +25,7 @@ There are 3 distinct steps in the C compilation process.
 > produces an object file `.o`
 
 Although compilation and assembly are considered distinct steps, the `-c` flag tells the compiler to compile the source code and      assemble it into an object file `.o`. We don't have to handle the two steps separately. This is why an assembly language file is 
-not produced during compilation. As a result, some descriptions/diagrams of the process exclude assembly. 
+not produced during compilation. As a result, some descriptions/diagrams of the process exclude assembly, since compilation encompasses it. 
 
 4. Linking: The linker's primary job is to combine multiple object files (and possibly libraries) into a single executable.
 
