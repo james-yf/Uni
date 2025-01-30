@@ -12,7 +12,7 @@ There are 4 distinct steps in the C compilation process. Since this topic isn't 
 
 > the output is a modified source file with all the `#` lines resolved
 
-Example source.c
+Example `source.c`
 ```
   #include <stdio.h>
   #define SIZE 10
@@ -87,7 +87,7 @@ LBB0_2:
 .subsections_via_symbols
 
 ```
-Example source.c from before translated into an assembly language `.s` file 
+Example `source.c` from before translated into an assembly language `.s` file 
 
 > produces an assembly language file, such as a `.s`, as shown above
 
