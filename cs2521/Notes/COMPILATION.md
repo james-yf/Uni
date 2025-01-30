@@ -12,6 +12,28 @@ There are 4 distinct steps in the C compilation process. Since this topic isn't 
 
 > the output is a modified source file with all the `#` lines resolved
 
+Example source.c
+```
+  #include <stdio.h>
+  #define SIZE 10
+
+  int main(void) {
+      int numbers[SIZE];
+  	  return 0;
+  }
+```
+
+Output after preprocessing
+```
+
+  int main(void) {
+      int numbers[10];
+      return 0;
+  }
+
+```
+> There is more output than shown, as `stdio.h` needs to be handled, but for simplicity this shows how our written program is modified
+
 ## 2. Compilation:
 
    The compiler **translates the preprocessed code into assembly**. The compiler also checks for syntax errors
