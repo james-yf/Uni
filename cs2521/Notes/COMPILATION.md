@@ -25,6 +25,10 @@ Example source.c
 
 Output after preprocessing
 ```
+  extern int __vsnprintf_chk (char * restrict, size_t, int, size_t,
+       const char * restrict, va_list);
+  # 417 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdio.h" 2 3 4
+  # 2 "pre.c" 2
 
   int main(void) {
       int numbers[10];
@@ -32,7 +36,7 @@ Output after preprocessing
   }
 
 ```
-> There are hundreds of lines more in output than shown above, since `stdio.h` is replaced with its function declarations, macros and constants, and type definitions, so I have chosen to omit them. The chosen snippet highlights modifications to `main`.
+> There are hundreds more lines in the output than shown above, since `stdio.h` is replaced with its function declarations, macros and constants, and type definitions, so i've provided only a small snippet.
 
 ## 2. Compilation:
 
