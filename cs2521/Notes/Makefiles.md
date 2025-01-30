@@ -4,14 +4,17 @@ Although it seems compilation is one step `gcc -o executable_name source.c` ther
 
 There are 4 distinct steps in the C compilation process. 
 
-1. Preprocessing: **Handles lines beginning with `#`**, so #includes, #defines, and
-#ifdef. 
+## 1. Preprocessing:
+
+   **Handles lines beginning with `#`**, so #includes, #defines, and #ifdef. 
 
 ` gcc -E source.c ` To run the preprocessing step
 
 > the output is a modified source file with all the `#` lines resolved
 
-2. Compilation: The compiler **translates the preprocessed code into assembly**. The compiler also checks for syntax errors
+## 2. Compilation:
+
+   The compiler **translates the preprocessed code into assembly**. The compiler also checks for syntax errors
    and translates high-level language constructs into low-level assembly instructions.
 
 ` gcc -c source.c ` To run the compilation step 
@@ -20,7 +23,7 @@ There are 4 distinct steps in the C compilation process.
 
 > produces an assembly language file, such as `.s`
 
-3. Assembly: The assembler **converts the assembly language file into machine code**.
+## 3. Assembly: The assembler **converts the assembly language file into machine code**.
 
 > produces an object file `.o`
 
@@ -31,7 +34,9 @@ There are 4 distinct steps in the C compilation process.
 
 - As a result, some descriptions/diagrams of the process exclude assembly, since compilation encompasses it. 
 
-4. Linking: The linker's primary job is to combine multiple object files (and possibly libraries) into a single executable.
+## 4. Linking:
+
+The linker's primary job is to combine multiple object files (and possibly libraries) into a single executable.
 
 ` gcc -o source.o [any other object files] executable_name` To run the linking step 
 
