@@ -48,3 +48,53 @@ clean:
 - `gcc -o hello main.o hello.o` is the command to link the object files into the final executable.
 
 - The `clean` target is a convenience target to remove generated files.
+
+## Useful features
+
+### 1. Automatic Variables: 
+
+Make provides several automatic variables that make it easier to write rules.
+
+- `$@`: The target name.
+
+- `$<`: The first dependency.
+
+- `$^`: All dependencies.
+
+- `$?`: Dependencies that are newer than the target.
+
+
+### 2. Pattern Rules: 
+
+These allow you to define generic rules that apply to multiple targets. For example, you can specify how to build any `.o` file from a `.c` file using a single rule.
+
+```
+%.o: %.c
+    gcc -c $< -o $@
+```
+
+In this rule:
+
+- `%` is a wildcard that matches any filename.
+
+- `$<` is an automatic variable representing the first dependency (the `.c` file).
+
+- `$@` is an automatic variable representing the target (the `.o` file).
+
+### 3. Variables: 
+
+You can define variables to simplify and customize your Makefile. This is useful for setting compiler options, defining lists of files, etc.
+
+```
+CC = gcc
+CFLAGS = -Wall -g
+OBJS = main.o hello.o
+
+hello: $(OBJS)
+    $(CC) -o hello $(OBJS)
+
+%.o: %.c
+    $(CC) $(CFLAGS) -c $< -o $@
+```
+
+### There are more, but they aren't useful for this course
