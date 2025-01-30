@@ -1,4 +1,4 @@
-# Makefiles ![Alt Text](images/mk.png)
+# Makefiles
 
 ## What is a Makefile?
 It is a special file, typically named "Makefile" or "makefile", used by the `make` build automation tool to compile and build programs.
