@@ -97,4 +97,4 @@ hello: $(OBJS)
     $(CC) $(CFLAGS) -c $< -o $@
 ```
 
-### There are more, but they aren't useful for this course
+### There are more, but they aren't necessary for this course
