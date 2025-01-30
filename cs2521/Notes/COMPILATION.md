@@ -32,7 +32,7 @@ Output after preprocessing
   }
 
 ```
-> There is more output than shown, as `stdio.h` needs to be handled, but for simplicity this shows how our written program is modified
+> There is much more output than shown above, since `stdio.h` needs to be handled, but for the sake of simplicity, the chosen snippet of output shows modifications to our code.
 
 ## 2. Compilation:
 
