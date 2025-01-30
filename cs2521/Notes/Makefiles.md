@@ -23,7 +23,9 @@ There are 4 distinct steps in the C compilation process.
 
 > produces an assembly language file, such as `.s`
 
-## 3. Assembly: The assembler **converts the assembly language file into machine code**.
+## 3. Assembly: 
+
+  The assembler **converts the assembly language file into machine code**.
 
 > produces an object file `.o`
 
@@ -42,6 +44,7 @@ The linker's primary job is to combine multiple object files (and possibly libra
 
 > produces an executable file
 
+## Diagram
 ![Alt Text](images/3StepsCompiling.png)
 The 3 GCC Compiler Steps (excludes assembly)
 
