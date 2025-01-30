@@ -2,7 +2,7 @@
 
 Although COMP1511 has made it seem compilation is as simple as `gcc -o executable_name source.c` which produces an executable in a one liner, there is more to it than meets the eye.
 
-There are 4 distinct steps in the C compilation process. Due to a lack of necessity for this topic in the COMP2521 course, each step is covered briefly. 
+There are 4 distinct steps in the C compilation process. Since this topic isn't directly assessed in the COMP2521 course, each step is covered briefly. 
 
 ## 1. Preprocessing:
 
