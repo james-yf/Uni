@@ -34,5 +34,5 @@ not produced during compilation. As a result, some descriptions/diagrams of the 
 > produces an executable file
 
 ![Alt Text](images/3StepsCompiling.png)
-testing
+The 3 GCC Compiler Steps (excludes assembly)
 
