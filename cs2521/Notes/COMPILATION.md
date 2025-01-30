@@ -83,7 +83,7 @@ LBB0_2:
 .subsections_via_symbols
 
 ```
-source.c translated into assembly language `.s` file 
+source.c translated into an assembly language `.s` file 
 
 > produces an assembly language file, such as a `.s`, as shown above
 
