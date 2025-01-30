@@ -1,3 +1,5 @@
-#Compiling Steps
+# Compiling Steps
 
-![Alt Text](../../../Desktop/Compilation-Process-in-C.png)
+![Alt Text](https://media.geeksforgeeks.org/wp-content/uploads/20230404112946/Compilation-Process-in-C.png)
+
+
