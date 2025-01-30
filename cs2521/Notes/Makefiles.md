@@ -1,5 +1,7 @@
 # Compiling Steps
 
+Although it seems compilation is one step `gcc -o source source.c` there is more to it than meets the eye.
+
 There are 3 distinct steps in the C compilation process. 
 
 1. Preprocessing: Handles lines beginning with "#", so #includes, #defines, and
@@ -9,9 +11,8 @@ There are 3 distinct steps in the C compilation process.
 
 > the output is a modified source file with all the "#" lines resolved
 
-2. 
+2. Compilation:
 
-<!-- Compilation:  -->
 
 ![Alt Text](images/3StepsCompiling.png)
 
