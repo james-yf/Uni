@@ -1,3 +1,3 @@
 #Compiling Steps
 
-![Alt Text](jamesyossef/Desktop/Compilation-Process-in-C)
+![Alt Text](../../../Desktop/Compilation-Process-in-C)
