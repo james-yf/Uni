@@ -126,4 +126,15 @@ hello: $(OBJS)
     $(CC) $(CFLAGS) -c $< -o $@
 ```
 
+### 4. Phony Targets
+
+`.PHONY` targets are used to declare targets that are not files (they are commands), preventing conflicts with files of the same name.
+
+```
+.PHONY: clean
+
+clean:
+    rm -f *.o myprogram
+```
+
 ### There are more, but they aren't necessary for this course
