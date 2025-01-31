@@ -31,7 +31,7 @@ def create_child_directories(par_name, par_path, child_count):
                 child_name = par_name[:-1] + "10"
             elif i > 10 and i < 20:
                 child_name = par_name[:-1] + "1" + str(i)
-            child_name = par_name[:-1] + str(i)
+
             child_path = os.path.join(par_path, child_name)
             os.mkdir(child_path, 0o700)
             print("Created: " + "{" + child_path + "}")
