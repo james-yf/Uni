@@ -49,7 +49,7 @@ clean:
 
 - The `clean` target is a convenience target to remove generated files.
 
-## Useful features
+## Makefile features
 
 ### 1. Automatic Variables: 
 
