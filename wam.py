@@ -140,7 +140,6 @@ def main():
     while True:
         time.sleep(TIME_BEFORE_MENU_APPEARS)
         print_menu()
-        menu_choice = 3
         
         while True:
             try:
