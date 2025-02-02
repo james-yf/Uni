@@ -112,7 +112,7 @@ def get_curr_wam_and_course_count():
 
 def calculate_wam(marks_list) -> float:
     course_count = len(marks_list)
-
+   
     global wam_calc_numerator 
     for mark in marks_list:
         wam_calc_numerator += (mark * UOC_FOR_COURSES)
@@ -120,9 +120,11 @@ def calculate_wam(marks_list) -> float:
     global wam_calc_denominator 
     wam_calc_denominator += (course_count * UOC_FOR_COURSES)
 
-    wam = wam_calc_numerator / wam_calc_denominator
+    wam = (wam_calc_numerator / wam_calc_denominator)
+
+    rounded_wam = round(wam, 2)
         
-    return wam
+    return rounded_wam
       
     
 def print_menu():
@@ -186,7 +188,6 @@ def main():
                         print("Marks cannot be greater than 100! Please re-enter marks.")
                         continue
 
-                    
                     predicted_marks_list.extend(predicted_marks)
                     break
 
@@ -195,25 +196,26 @@ def main():
 
             
             if len(predicted_marks_list) == 1:
-                    is_single = input("Is " + str(predicted_marks_list[0]) + " a mark for a single course, or is it the mark for all remaining courses? [s - single] [a - all]: ")
+                    is_single = input("\nIs " + str(predicted_marks_list[0]) + " a mark for a single course, or is it the mark for all remaining courses? [s - single] [a - all]: ")
                     while is_single != "s" and is_single != "a":
                         is_single = input("Invalid input. Please enter [s - single] [a - all] if the mark is for a single course or for all remaining courses: ")
                     
                     if is_single == "s":
                         print("\nPredicted WAM after getting " + str(predicted_marks_list[0]) + " in 1 course is: " + str(calculate_wam(predicted_marks_list)))
                     else:
-                        ### Need to fix this later. Currently the calculate_wam function doesn't handles the case where a mark is constant for all remaining courses, i.e. if 67 is entered than 67 is achieved in 
-                        ### the remaining (MAX_COURSE_COUNT - current_course_count) courses
+                        remaining_course_count = (MAX_COURSE_COUNT - current_course_count)
+                        for i in range (1, remaining_course_count):
+                            predicted_marks_list.append(predicted_marks_list[0])
                         print("\nPredicted WAM after getting " + str(predicted_marks_list[0]) + " in " + str(MAX_COURSE_COUNT - current_course_count) + " remaining courses is: " + str(calculate_wam(predicted_marks_list)))
                     continue
             else:
                 predicted_mark_pos = 1
-                print("\nPredicted WAM after getting: ")s
+                print("\nPredicted WAM after getting: ")
                 for predicted_mark in predicted_marks_list:
                     print("Predicted mark  " + str(predicted_mark_pos) + ": " + str(predicted_mark))
                     predicted_mark_pos+=1
                 
-                print("Predicted WAM is: " + str(calculate_wam(predicted_marks_list)))
+                print("is: " + str(calculate_wam(predicted_marks_list)))
 
         else:
             print("Haven't coded option 2 logic yet!\n")
