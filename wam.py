@@ -8,6 +8,9 @@ import math
 
 ############################  CONSTANTS ####################################
 
+YES = "y"
+NO = "n"
+
 MAX_COURSE_COUNT = 20   # is 20 and not 24 since 4 already passed via RPL
                         # and hence don't count to WAM
 
@@ -21,7 +24,15 @@ MIN_COURSE_MARK = 0
 
 UOC_FOR_COURSES = 6
 
+WAM_PRECISION = 2
+
+PREDICTED_WAM_CHOICE = 1
+DESIRED_WAM_CHOICE = 2
+QUIT = 3
 TIME_BEFORE_MENU_APPEARS = 2
+
+SINGLE_COURSE = "s"
+ALL_COURSES = "a"
 ###########################################################################
 
 ############################  GLOBAL VARIABLES ###############################
@@ -40,10 +51,10 @@ def get_curr_wam_and_course_count():
 
     know_wam = input("Do you know your current WAM (y/n)?: ")
     
-    while know_wam != "y" and know_wam != "n":
+    while know_wam != YES and know_wam != NO:
         know_wam = input('Invalid input! Must answer (y/n) to: Do you know your current WAM?: ')
 
-    if know_wam == "y":
+    if know_wam == YES:
         while True:
             try:
                 current_wam = float(input("\nWhat is your current WAM?: "))
@@ -74,7 +85,7 @@ def get_curr_wam_and_course_count():
         wam_calc_numerator = current_wam * (current_course_count * UOC_FOR_COURSES)
         wam_calc_denominator = (current_course_count * UOC_FOR_COURSES)
     
-    elif know_wam == "n":
+    elif know_wam == NO:
         current_marks_list = []
     
         while True:
@@ -93,10 +104,10 @@ def get_curr_wam_and_course_count():
                     continue  # Restart input prompt if too many marks are entered
 
                 # Check for invalid marks
-                if any(i < MIN_COURSE_MARK for i in current_marks):
+                if any(current_mark < MIN_COURSE_MARK for current_mark in current_marks):
                     print("Marks cannot be negative! Please re-enter marks.")
                     continue  # Restart input prompt if there are negative marks
-                if any(i > MAX_COURSE_MARK for i in current_marks):
+                if any(current_mark > MAX_COURSE_MARK for current_mark in current_marks):
                     print("Marks cannot be greater than 100! Please re-enter marks.")
                     continue  # Restart input prompt if marks exceed 100
 
@@ -123,7 +134,7 @@ def calculate_wam(marks_list) -> float:
 
     wam = (wam_calc_numerator / wam_calc_denominator)
 
-    rounded_wam = round(wam, 2)
+    rounded_wam = round(wam, WAM_PRECISION)
         
     return rounded_wam
 
@@ -156,21 +167,21 @@ def main():
             try:
                 menu_choice = int(input(": "))
 
-                if menu_choice != 1 and menu_choice != 2 and menu_choice != 3:
+                if menu_choice != PREDICTED_WAM_CHOICE and menu_choice != DESIRED_WAM_CHOICE and menu_choice != QUIT:
                     print("Must be a number between (1-3)! Please re-enter.")
                 else:
                     break
             except ValueError:
                 print("Invalid input! Please enter a valid number (1-3).")
         
-        if menu_choice == 3:
+        if menu_choice == QUIT:
             print("\nTerminating script...\n")
             sys.exit(1)
         
         print("\nCurrent WAM is: " + str(current_wam))
         print("Current course count is: " + str(current_course_count))
 
-        if menu_choice == 1:
+        if menu_choice == PREDICTED_WAM_CHOICE:
             predicted_marks_list = []
 
             while True:
@@ -190,10 +201,10 @@ def main():
                         continue
 
                     # Check for invalid marks
-                    if any(i < MIN_COURSE_MARK for i in predicted_marks):
+                    if any(predicted_mark < MIN_COURSE_MARK for predicted_mark in predicted_marks):
                         print("Marks cannot be negative! Please re-enter marks.")
                         continue
-                    if any(i > MAX_COURSE_MARK for i in predicted_marks):
+                    if any(predicted_mark > MAX_COURSE_MARK for predicted_mark in predicted_marks):
                         print("Marks cannot be greater than 100! Please re-enter marks.")
                         continue
 
@@ -206,10 +217,10 @@ def main():
             
             if len(predicted_marks_list) == 1:
                     is_single = input("\nIs " + str(predicted_marks_list[0]) + " a mark for a single course, or is it the mark for all remaining courses? [s - single] [a - all]: ")
-                    while is_single != "s" and is_single != "a":
+                    while is_single != SINGLE_COURSE and is_single != ALL_COURSES:
                         is_single = input("Invalid input. Please enter [s - single] [a - all] if the mark is for a single course or for all remaining courses: ")
                     
-                    if is_single == "s":
+                    if is_single == SINGLE_COURSE:
                         print("\nPredicted WAM after getting " + str(predicted_marks_list[0]) + " in 1 course is: " + str(calculate_wam(predicted_marks_list)))
                     else:
                         remaining_course_count = (MAX_COURSE_COUNT - current_course_count)
@@ -248,7 +259,7 @@ def main():
 
             print("\nYour required average course mark to get " + str(desired_wam)+ " WAM is: " +  str(required_avg))
 
-            if required_avg > 100:
+            if required_avg > MAX_COURSE_MARK:
                 print("It is mathematically impossible for you to get " + str(desired_wam) + " WAM")
             else:
                 print("For each course you get below " + str(required_avg) +  " you will increase the average you need to get for the rest.")
