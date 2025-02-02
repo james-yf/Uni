@@ -4,6 +4,7 @@
 
 import sys
 import time
+import math
 
 ############################  CONSTANTS ####################################
 
@@ -58,7 +59,7 @@ def get_curr_wam_and_course_count():
 
         while True:
             try:
-                current_course_count = int(input("\nHow many courses have you taken (# courses contributing to WAM)?: "))
+                current_course_count = int(input("\nHow many courses have you taken (# courses contributing to WAM, includes WAM affecting fails)?: "))
 
                 if current_course_count > MAX_COURSE_COUNT:
                     print("Course count cannot be greater than 20! Please enter a valid number")
@@ -125,6 +126,14 @@ def calculate_wam(marks_list) -> float:
     rounded_wam = round(wam, 2)
         
     return rounded_wam
+
+
+# @ Formula used:
+# required average mark = (desired WAM * total units - current WAM * taken units)/(total units - taken units)
+# @
+def calculate_required_avg(desired_wam) -> int:
+    required_avg = (desired_wam * MAX_COURSE_COUNT - current_wam * current_course_count) / (MAX_COURSE_COUNT - current_course_count) 
+    return required_avg
       
     
 def print_menu():
@@ -218,8 +227,32 @@ def main():
                 print("is: " + str(calculate_wam(predicted_marks_list)))
 
         else:
-            print("Haven't coded option 2 logic yet!\n")
+            while True:
+                try:
+                    desired_wam = int(input("\nWhat is your desired WAM?: "))
 
+                    if desired_wam > MAX_WAM:
+                        print("WAM cannot exceed 100! Please re-enter WAM")
+                    elif desired_wam < MIN_WAM:
+                        print("WAM cannot be negative! Please re-enter WAM")
+                    else:
+                        break
+                except ValueError:
+                    print("Invalid input! Please enter a valid number: ")
+
+            required_avg = calculate_required_avg(desired_wam)
+
+            #take ceiling of avg to account for float course marks which are not given,
+            #marks are always an int
+            required_avg = math.ceil(required_avg)
+
+            print("\nYour required average course mark to get " + str(desired_wam)+ " WAM is: " +  str(required_avg))
+
+            if required_avg > 100:
+                print("It is mathematically impossible for you to get " + str(desired_wam) + " WAM")
+            else:
+                print("For each course you get below " + str(required_avg) +  " you will increase the average you need to get for the rest.")
+                print("For each course you get above " + str(required_avg) + " you will decrease the average you need to get for the rest.")
 
 
 if __name__ == "__main__":
