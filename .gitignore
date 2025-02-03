@@ -1,5 +1,8 @@
+# Environment variables
 .env
 
+# Virtual environment
 venv/
 
+# System files
 .DS_Store
